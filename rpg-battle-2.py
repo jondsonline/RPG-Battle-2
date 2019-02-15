@@ -6,7 +6,7 @@
 from charclass import *
 
 pc = Player(20, 6, 6)
-monster = Monster(12, 7, 5)
+monster = Monster(12, 6, 5)
 
 def player_attacks():
     player_hits = pc.to_hit(monster.armor_class)
@@ -57,7 +57,7 @@ while game_continues:
         print("\nLevel {} - Round {}".format(pc.level, combat_round))
         print("-----------------------------------------------------")
         print("Player: HP = {}/{}, AC = {}, Damage = 1d{}, Heal = 1d{}".format(pc.hit_points, pc.max_hit_points,
-                                                                  pc.armor_class, pc.attack_damage, pc.healing-1))
+                                                                  pc.armor_class, pc.attack_damage, pc.healing))
         print("Monster: HP = {}/{}, AC = {}, Damage = 1d{}".format(monster.hit_points, monster.max_hit_points,
                                                                    monster.armor_class, monster.attack_damage))
         print("-----------------------------------------------------")

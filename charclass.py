@@ -36,16 +36,16 @@ class Player(Creature):
         self.level = 1
 
     def heal(self):
-        heal_chance = random.randint(1, 5)
+        heal_chance = random.randint(1, self.healing)
 
-        if heal_chance == 5:
+        if heal_chance == 1:
             print("The healing spell backfires! You take 1 point of damage!")
             self.take_damage(1)
         else:
             self.hit_points += heal_chance
             if self.hit_points > self.max_hit_points:
                 self.hit_points = self.max_hit_points
-            print("Your healing spell heals {} hit point(s).".format(heal_chance))
+            print("Your healing spell heals {} hit points.".format(heal_chance))
 
     def level_up(self):
         self.level += 1
@@ -53,12 +53,12 @@ class Player(Creature):
 
         increased_stat = random.randint(1, 10)
 
-        if increased_stat >= 1 or increased_stat <= 5:
+        if increased_stat >= 1 and increased_stat <= 5:
             hp_increase = random.randint(2, 5)
             self.max_hit_points += hp_increase
             self.hit_points = self.max_hit_points
             print("Your maximum hit points increases by {}!".format(hp_increase))
-        elif increased_stat >= 6 or increased_stat <= 8:
+        elif increased_stat >= 6 and increased_stat <= 8:
             self.attack_damage += 1
             print("Your attack damage increases by 1!")
         elif increased_stat == 9:
